@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  background-color: #7fdcec;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: 90vh;
+  overflow-y: auto;
+}
+
+h1, h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+.input-area {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  width: 70%;
+  max-width: 250px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.buttons {
+  margin-bottom: 20px;
+}
+
+.new-list-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.new-list-btn:hover {
+  background-color: #e53935;
+}
+
+/* Estilo das listas de jogadores */
+.lista {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  max-width: 100%;
+}
+
+/* Lista de jogadores com rolagem */
+.lista-jogadores {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+/* Lista de confirmados com rolagem */
+.lista-confirmados {
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.jogador {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+.jogador.presente {
+  background-color: #c8e6c9;
+}
+
+.jogador span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jogador .remove-btn {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.jogador .remove-btn:hover {
+  color: darkred;
+}
+
+.jogador.removido {
+  background-color: #ffcccc;
+  color: #ff0000;
+}
+
+.jogador.removido span {
+  font-weight: bold;
+}
+
+.jogador.removido .remove-btn {
+  display: none;
+}
+
+.lista li {
+  padding: 8px;
+  background-color: #76aacf;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+
+.jogador span {
+  font-size: 18px;
+}
+
+.jogador.presente span {
+  color: green;
+}
+
+.jogador:not(.presente) span {
+  color: red;
+}
+.botoes-jogador {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.confirmar-btn {
+  background-color: #2196F3;
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.confirmar-btn:hover {
+  background-color: #1976d2;
+}
+
+.restaurar-btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.restaurar-btn:hover {
+  background-color: #388e3c;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.lista-jogadores::-webkit-scrollbar,
+.lista-confirmados::-webkit-scrollbar,
+.container::-webkit-scrollbar {
+  display: none;
+}

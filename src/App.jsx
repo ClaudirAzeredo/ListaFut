@@ -22,6 +22,7 @@ export default function App() {
 
   // Salva a lista no Firebase
   const salvarNoFirebase = (lista) => {
+    console.log("Salvando no Firebase:", lista); // 🔍 DEBUG
     set(ref(database, "jogadores"), lista);
   };
 

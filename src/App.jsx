@@ -1,33 +1,37 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react';
+import { ref, onValue, set } from "firebase/database";
+import { database } from "./firebase";
+import './App.css';
 
 export default function App() {
   const [jogadores, setJogadores] = useState([]);
   const [nome, setNome] = useState("");
 
-  // Carrega os jogadores do localStorage ao iniciar
+  // Lê dados do Firebase em tempo real
   useEffect(() => {
-    const jogadoresSalvos = localStorage.getItem("jogadores");
-    if (jogadoresSalvos) {
-      setJogadores(JSON.parse(jogadoresSalvos));
-    }
+    const jogadoresRef = ref(database, "jogadores");
+    onValue(jogadoresRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        setJogadores(data);
+      } else {
+        setJogadores([]);
+      }
+    });
   }, []);
 
-  // Salva os jogadores no localStorage sempre que mudar
-  useEffect(() => {
-    if (jogadores.length > 0) {
-      localStorage.setItem("jogadores", JSON.stringify(jogadores));
-    }
-  }, [jogadores]);
+  // Salva a lista no Firebase
+  const salvarNoFirebase = (lista) => {
+    set(ref(database, "jogadores"), lista);
+  };
 
   const adicionarJogador = () => {
     const nomeLimpo = nome.replace(/\\/g, "").trim();
     if (nomeLimpo !== "") {
       const nomeExiste = jogadores.some(j => j.nome.toLowerCase() === nomeLimpo.toLowerCase());
       if (!nomeExiste) {
-        setJogadores([...jogadores, { nome: nomeLimpo, presente: false, emoji: "", removido: false }]);
+        const novaLista = [...jogadores, { nome: nomeLimpo, presente: false, emoji: "", removido: false }];
+        salvarNoFirebase(novaLista);
         setNome("");
       } else {
         alert("Jogador já está na lista!");
@@ -39,27 +43,26 @@ export default function App() {
     const novaLista = [...jogadores];
     const emoji = Math.random() > 0.5 ? "🚺" : "🤕";
     novaLista[index].removido = true;
-    novaLista[index].emoji = emoji; // corrigido aqui
+    novaLista[index].emoji = emoji;
     novaLista[index].presente = false;
-    setJogadores(novaLista); // corrigido aqui
+    salvarNoFirebase(novaLista);
   };
 
   const restaurarJogador = (index) => {
-    const novosJogadores = [...jogadores];
-    novosJogadores[index].emoji = "";
-    novosJogadores[index].removido = false;
-    setJogadores(novosJogadores);
+    const novaLista = [...jogadores];
+    novaLista[index].emoji = "";
+    novaLista[index].removido = false;
+    salvarNoFirebase(novaLista);
   };
 
   const criarNovaLista = () => {
-    setJogadores([]);
-    localStorage.removeItem("jogadores");
+    salvarNoFirebase([]);
   };
 
   const alternarPresenca = (index) => {
-    const novosJogadores = [...jogadores];
-    novosJogadores[index].presente = !novosJogadores[index].presente;
-    setJogadores(novosJogadores);
+    const novaLista = [...jogadores];
+    novaLista[index].presente = !novaLista[index].presente;
+    salvarNoFirebase(novaLista);
   };
 
   return (
@@ -113,11 +116,10 @@ export default function App() {
             </li>
           ))}
       </ul>
-      
+
       <div className="buttons">
         <button onClick={criarNovaLista} className="new-list-btn">Nova Lista</button>
       </div>
-
     </div>
   );
 }

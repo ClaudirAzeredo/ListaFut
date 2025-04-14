@@ -1,4 +1,4 @@
-* {
+ {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -89,7 +89,6 @@ button:hover {
   background-color: #e53935;
 }
 
-/* Estilo das listas de jogadores */
 .lista {
   list-style-type: none;
   padding: 0;
@@ -98,14 +97,12 @@ button:hover {
   max-width: 100%;
 }
 
-/* Lista de jogadores com rolagem */
 .lista-jogadores {
   max-height: 200px;
   overflow-y: auto;
   margin-bottom: 20px;
 }
 
-/* Lista de confirmados com rolagem */
 .lista-confirmados {
   max-height: 150px;
   overflow-y: auto;

@@ -6,8 +6,7 @@ import './App.css';
 export default function App() {
   const [jogadores, setJogadores] = useState([]);
   const [nome, setNome] = useState("");
-
-  // Lê dados do Firebase em tempo real
+ 
   useEffect(() => {
     const jogadoresRef = ref(database, "jogadores");
     onValue(jogadoresRef, (snapshot) => {
@@ -20,9 +19,8 @@ export default function App() {
     });
   }, []);
 
-  // Salva a lista no Firebase
   const salvarNoFirebase = (lista) => {
-    console.log("Salvando no Firebase:", lista); // 🔍 DEBUG
+    console.log("Salvando no Firebase:", lista); 
     set(ref(database, "jogadores"), lista);
   };
 

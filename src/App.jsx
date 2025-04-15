@@ -6,6 +6,7 @@ import './App.css';
 export default function App() {
   const [jogadores, setJogadores] = useState([]);
   const [nome, setNome] = useState("");
+
  
   useEffect(() => {
     const jogadoresRef = ref(database, "jogadores");
@@ -20,6 +21,7 @@ export default function App() {
   }, []);
 
   const salvarNoFirebase = (lista) => {
+    console.log("Salvando no Firebase:", lista); 
     console.log("Salvando no Firebase:", lista); 
     set(ref(database, "jogadores"), lista);
   };

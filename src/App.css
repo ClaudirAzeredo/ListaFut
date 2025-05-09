@@ -6,7 +6,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-image: url('public/Fundo.jpg'); 
+  background-color: #E6E6E6; 
   background-size: cover;        
   background-position: center;   
   background-repeat: no-repeat;  
@@ -48,6 +48,7 @@ h1 {
 input {
   padding: 10px;
   font-size: 16px;
+  color: #1a1919;
   width: 70%;
   max-width: 250px;
   margin-right: 10px;

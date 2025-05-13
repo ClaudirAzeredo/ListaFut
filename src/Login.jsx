@@ -9,7 +9,7 @@ function Login() {
     if (tipo === 'organizador') {
       navigate('/organizador');
     } else if (tipo === 'jogador') {
-      navigate('/app');
+      navigate('/jogador'); // Corrigido: antes era '/app'
     }
   };
 
@@ -21,8 +21,12 @@ function Login() {
       </h1>
       <p className="subtitle">Escolha como deseja logar!</p>
       <div className="button-group">
-        <button className="login-button" onClick={() => handleLogin('jogador')}>Sou Jogador</button>
-        <button className="login-button" onClick={() => handleLogin('organizador')}>Sou Organizador!</button>
+        <button className="login-button" onClick={() => handleLogin('jogador')}>
+          Sou Jogador
+        </button>
+        <button className="login-button" onClick={() => handleLogin('organizador')}>
+          Sou Organizador!
+        </button>
       </div>
       <footer className="footer">
         <p>Seja bem-vindo!</p>

@@ -7,6 +7,7 @@ import './App.css';
 export default function App() {
   const [jogadores, setJogadores] = useState([]);
   const [nome, setNome] = useState("");
+  const [corUniforme, setCorUniforme] = useState("#00b894"); // ✅ Novo estado para cor
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -115,11 +116,27 @@ export default function App() {
         {jogadores
           .filter(jogador => jogador.presente)
           .map((jogador, index) => (
-            <li key={index} className="jogador">
+            <li
+              key={index}
+              className="jogador"
+              style={{ backgroundColor: corUniforme, color: "#fff" }} // ✅ Aplicação da cor
+            >
               {jogador.nome}
             </li>
           ))}
       </ul>
+
+      {/* ✅ Seletor de cor */}
+      <div className="seletor-uniforme" style={{ margin: '20px 0' }}>
+        <label htmlFor="uniformeColor">Selecione a cor do uniforme:</label>
+        <input
+          type="color"
+          id="uniformeColor"
+          value={corUniforme}
+          onChange={(e) => setCorUniforme(e.target.value)}
+          style={{ marginLeft: '10px', cursor: 'pointer' }}
+        />
+      </div>
 
       <div className="buttons">
         <button onClick={criarNovaLista} className="new-list-btn">Nova Lista</button>

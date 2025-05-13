@@ -6,10 +6,10 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #E6E6E6; 
-  background-size: cover;        
-  background-position: center;   
-  background-repeat: no-repeat;  
+  background-color: #E6E6E6;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
   margin: 0;
   display: flex;
@@ -20,10 +20,10 @@ body {
 .container {
   width: 100%;
   max-width: 600px;
-  background-color: #7fdcec;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+  background-color: #f1f1f1;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   height: 90vh;
   overflow-y: auto;
@@ -43,34 +43,36 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-input {
-  padding: 10px;
+input[type="text"] {
+  padding: 10px 16px;
   font-size: 16px;
   color: #1a1919;
   width: 70%;
   max-width: 250px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
+  border: none;
+  border-radius: 20px;
   background-color: #ffffff;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
-input:focus {
+input[type="text"]:focus {
   outline: none;
   border-color: #4CAF50;
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 10px 16px;
+  font-size: 15px;
   cursor: pointer;
   border: none;
   background-color: #4CAF50;
   color: white;
-  border-radius: 4px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -78,20 +80,27 @@ button:hover {
 }
 
 .buttons {
-  margin-bottom: 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .new-list-btn {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #f44336;
-  color: white;
-  border: none;
-  border-radius: 4px;
+  background-color: #2e6b03;
 }
 
 .new-list-btn:hover {
-  background-color: #e53935;
+  background-color: #245602;
+}
+
+.save-list-btn {
+  background-color: #3d7303;
+}
+
+.save-list-btn:hover {
+  background-color: #2e5802;
 }
 
 .lista {
@@ -118,7 +127,7 @@ button:hover {
   padding: 10px;
   margin: 5px 0;
   background-color: #f0f0f0;
-  border-radius: 4px;
+  border-radius: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -137,6 +146,15 @@ button:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 18px;
+}
+
+.jogador:not(.presente) span {
+  color: red;
+}
+
+.jogador.presente span {
+  color: green;
 }
 
 .jogador .remove-btn {
@@ -164,24 +182,6 @@ button:hover {
   display: none;
 }
 
-.lista li {
-  padding: 8px;
-  background-color: #76aacf;
-  margin: 5px 0;
-  border-radius: 4px;
-}
-
-.jogador span {
-  font-size: 18px;
-}
-
-.jogador.presente span {
-  color: green;
-}
-
-.jogador:not(.presente) span {
-  color: red;
-}
 .botoes-jogador {
   display: flex;
   gap: 8px;
@@ -216,12 +216,35 @@ button:hover {
   background-color: #388e3c;
 }
 
-.buttons {
-  margin-top: 20px;
-}
-
 .lista-jogadores::-webkit-scrollbar,
 .lista-confirmados::-webkit-scrollbar,
 .container::-webkit-scrollbar {
   display: none;
+}
+
+.seletor-uniforme {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.seletor-uniforme input[type="color"] {
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+.seletor-uniforme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #1a1919;
 }

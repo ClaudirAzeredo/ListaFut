@@ -1,8 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Teladeposicoes.css';
-import campoImg from './assets/Campo.png'; // ajuste o caminho se necessário
+import campoImg from './assets/Campo.png';
+
+const PlayerSlot = ({ positionClass, onClick }) => (
+  <div className={`player-slot ${positionClass}`} onClick={onClick}>
+    +
+  </div>
+);
 
 const Teladeposicoes = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [position, setPosition] = useState('');
+
+  const handleSlotClick = (pos) => {
+    setPosition(pos);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setPosition('');
+  };
+
+  const positions = [
+    'GOL', 'LE', 'LD', 'ZAG1', 'ZAG2',
+    'VOL', 'MC1', 'MC2',
+    'PTE', 'PTD', 'CA'
+  ];
+
   return (
     <div className="container">
       <div className="field-and-bench">
@@ -10,16 +35,19 @@ const Teladeposicoes = () => {
           className="field"
           style={{ backgroundImage: `url(${campoImg})` }}
         >
-          <div className="player-slot gk" />
-          <div className="player-slot d1" />
-          <div className="player-slot d2" />
-          <div className="player-slot d3" />
-          <div className="player-slot d4" />
-          <div className="player-slot m1" />
-          <div className="player-slot m2" />
-          <div className="player-slot a1" />
-          <div className="player-slot a2" />
-          <div className="player-slot a3" />
+          {positions.map((pos) => (
+            <PlayerSlot key={pos} positionClass={pos} onClick={() => handleSlotClick(pos)} />
+          ))}
+
+          {showModal && (
+            <div className="modal-overlay" onClick={closeModal}>
+              <div className="modal" onClick={(e) => e.stopPropagation()}>
+                <p><strong>{position.toUpperCase()}</strong>: Nome do Jogador</p>
+                <input type="text" placeholder={`Nome do ${position.toUpperCase()}`} />
+                <button onClick={closeModal}>Adicionar</button>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="bench">

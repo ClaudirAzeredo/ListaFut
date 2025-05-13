@@ -1,39 +1,54 @@
+/* Reset e Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #e6e6e6;
+  font-family: Arial, sans-serif;
+}
+
+/* Layout Principal */
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;  /* Centraliza horizontalmente */
-  justify-content: center; /* Centraliza verticalmente */
+  align-items: center;
+  justify-content: flex-start;
   background-color: #e6e6e6;
-  height: 100vh; /* Ocupa toda a altura da tela */
+  min-height: 100vh;
   padding-top: 20px;
-  font-family: Arial, sans-serif;
 }
 
 .field-and-bench {
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   gap: 20px;
-  justify-content: center;  /* Centraliza o campo e o banco */
+  flex-wrap: wrap;
 }
 
 .field {
-  width: 250px;
-  height: 350px;
-  background-image: url('/assets/Campo.png'); /* Caminho correto (dentro de public/) */
-  background-size: cover;
+  width: 700px;
+  height: 450px;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
   border-radius: 10px;
   position: relative;
-  display: grid;
-  grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
-  padding: 10px;
+  background-color: transparent;
 }
 
+/* Bolinhas Pretas (Jogadores) */
 .player-slot {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   background-color: black;
   border-radius: 50%;
   display: flex;
@@ -41,27 +56,34 @@
   justify-content: center;
   color: white;
   font-weight: bold;
+  position: absolute;
+  cursor: pointer;
+  font-size: 18px;
 }
 
-.player-slot::before {
-  content: "+";
-}
+/* Posições no Campo */
+.GOL { top: 380px; left: 335px; }
+.LE { top: 290px; left: 165px; }
+.LD { top: 290px; left: 505px; }
+.ZAG1 { top: 320px; left: 250px; }
+.ZAG2 { top: 320px; left: 410px; }
+.VOL { top: 200px; left: 333px; }
+.MC1 { top: 137px; left: 235px; }
+.MC2 { top: 137px; left: 435px; }
+.PTE { top: 60px; left: 235px; }
+.PTD { top: 60px; left: 435px; }
+.CA { top: 50px; left: 335px; }
 
-.gk { position: absolute; top: 10px; left: 85px; }
-.d1 { position: absolute; top: 60px; left: 20px; }
-.d2 { position: absolute; top: 60px; right: 20px; }
-.d3 { position: absolute; top: 110px; left: 40px; }
-.d4 { position: absolute; top: 110px; right: 40px; }
-.m1 { position: absolute; top: 160px; left: 80px; }
-.m2 { position: absolute; top: 210px; left: 80px; }
-.a1 { position: absolute; top: 270px; left: 20px; }
-.a2 { position: absolute; top: 270px; right: 20px; }
-.a3 { position: absolute; top: 300px; left: 80px; }
-
+/* Banco de Reservas */
 .bench {
   font-size: 14px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
+/* Seletor de Posição */
 .position-selector {
   margin-top: 20px;
   text-align: center;
@@ -73,6 +95,8 @@
   background-color: #d19000;
   padding: 10px 20px;
   border-radius: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .position-buttons button {
@@ -80,13 +104,58 @@
   border: none;
   font-weight: bold;
   cursor: pointer;
+  color: white;
+  font-size: 16px;
 }
 
+/* Botão Confirmar */
 .confirm-button {
   margin-top: 20px;
   background-color: #4CAF50;
   color: white;
-  padding: 6px 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Modal Flutuante */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 320px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.modal input {
+  padding: 10px;
+  width: 85%;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.modal button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;

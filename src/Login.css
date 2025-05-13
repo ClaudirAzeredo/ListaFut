@@ -1,70 +1,75 @@
 body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    background-color: #eeeeee;
-    
-  }
-  
-  .login-container {
-    text-align: center;
-    padding: 40px;
-    min-height: 100vh;
-  }
-  
-  .logo {
-    width: 150px;
-    margin-bottom: 20px;
-  }
-  
-  .title {
-    font-size: 32px;
-    font-weight: bold;
-    margin: 10px ;
-  }
-  
-  .green {
-    color: green;
-  }
-  
-  .red {
-    color: red;
-  }
-  
-  .subtitle {
-    color: green;
-    font-size: 16px;
-    margin-bottom: 30px;
-  }
-  
-  .button-group {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 50px;
-  }
-  
-  .login-button {
-    background-color: #d18b00;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .login-button:hover {
-    background-color: #a76d00;
-  }
-  
-  .footer {
-    color: green;
-    font-size: 14px;
-    
-  }
-  
+  height: 100vh; /* Garantir que o corpo ocupe 100% da altura da tela */
+  margin: 0;
+  display: flex; /* Exibição flexível */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  font-family: Arial, sans-serif;
+  background-color: #eeeeee;
+}
+
+.login-container {
+  text-align: center; /* Alinha o conteúdo de texto ao centro */
+  padding: 40px;
+  display: flex;
+  flex-direction: column; /* Organiza os elementos na direção vertical */
+  justify-content: center; /* Centraliza os itens dentro do container */
+  align-items: center; /* Centraliza os itens dentro do container */
+  min-height: 100vh; /* Garantir que o container ocupe toda a altura */
+  box-sizing: border-box; /* Garantir que padding e bordas sejam incluídos nas dimensões */
+}
+
+.logo {
+  width: 450px; /* Defina a largura da logo como quiser */
+  height: 350px; /* A altura também pode ser definida para manter o controle da proporção */
+  margin-bottom: 20px;
+  object-fit: contain; /* Garante que a imagem preserve sua proporção */
+}
+
+.title {
+  font-size: 32px; /* Tamanho da fonte do título */
+  font-weight: bold; /* Torna o título em negrito */
+  margin: 10px;
+}
+
+.green {
+  color: green; /* Cor verde */
+}
+
+.red {
+  color: red; /* Cor vermelha */
+}
+
+.subtitle {
+  color: green;
+  font-size: 16px; /* Tamanho da fonte da legenda */
+  margin-bottom: 30px; /* Espaçamento abaixo da legenda */
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.login-button {
+  background-color: #d18b00;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #a76d00;
+}
+
+.footer {
+  color: green;
+  font-size: 14px;
+  margin-top: 30px; /* Adiciona um espaço entre o conteúdo principal e o rodapé */
+}

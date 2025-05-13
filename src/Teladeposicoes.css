@@ -1,0 +1,93 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
+  background-color: #e6e6e6;
+  height: 100vh; /* Ocupa toda a altura da tela */
+  padding-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.field-and-bench {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  justify-content: center;  /* Centraliza o campo e o banco */
+}
+
+.field {
+  width: 250px;
+  height: 350px;
+  background-image: url('/assets/Campo.png'); /* Caminho correto (dentro de public/) */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  padding: 10px;
+}
+
+.player-slot {
+  width: 24px;
+  height: 24px;
+  background-color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.player-slot::before {
+  content: "+";
+}
+
+.gk { position: absolute; top: 10px; left: 85px; }
+.d1 { position: absolute; top: 60px; left: 20px; }
+.d2 { position: absolute; top: 60px; right: 20px; }
+.d3 { position: absolute; top: 110px; left: 40px; }
+.d4 { position: absolute; top: 110px; right: 40px; }
+.m1 { position: absolute; top: 160px; left: 80px; }
+.m2 { position: absolute; top: 210px; left: 80px; }
+.a1 { position: absolute; top: 270px; left: 20px; }
+.a2 { position: absolute; top: 270px; right: 20px; }
+.a3 { position: absolute; top: 300px; left: 80px; }
+
+.bench {
+  font-size: 14px;
+}
+
+.position-selector {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.position-buttons {
+  display: flex;
+  gap: 10px;
+  background-color: #d19000;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.position-buttons button {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.confirm-button {
+  margin-top: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

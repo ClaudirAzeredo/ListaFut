@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { ref, onValue, set } from "firebase/database";
 import { database } from "./firebase";
+import { useNavigate } from 'react-router-dom';
 import './App.css';
 
 export default function App() {
   const [jogadores, setJogadores] = useState([]);
   const [nome, setNome] = useState("");
+  const navigate = useNavigate();
 
- 
   useEffect(() => {
     const jogadoresRef = ref(database, "jogadores");
     onValue(jogadoresRef, (snapshot) => {
@@ -21,8 +22,6 @@ export default function App() {
   }, []);
 
   const salvarNoFirebase = (lista) => {
-    console.log("Salvando no Firebase:", lista); 
-    console.log("Salvando no Firebase:", lista); 
     set(ref(database, "jogadores"), lista);
   };
 
@@ -66,6 +65,10 @@ export default function App() {
     salvarNoFirebase(novaLista);
   };
 
+  const validarLista = () => {
+    navigate('/formacao');
+  };
+
   return (
     <div className="container">
       <h1>Lista da Pelada</h1>
@@ -89,7 +92,7 @@ export default function App() {
             <span onClick={() => alternarPresenca(index)}>
               {jogador.emoji
                 ? `${jogador.nome} ${jogador.emoji}`
-                : `${jogador.presente ? "" : ""} ${jogador.nome}`}
+                : `${jogador.nome}`}
             </span>
 
             <div className="botoes-jogador">
@@ -120,6 +123,7 @@ export default function App() {
 
       <div className="buttons">
         <button onClick={criarNovaLista} className="new-list-btn">Nova Lista</button>
+        <button onClick={validarLista} className="save-list-btn">Validar Lista</button>
       </div>
     </div>
   );

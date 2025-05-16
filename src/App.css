@@ -1,3 +1,4 @@
+/* App.css */
 * {
   margin: 0;
   padding: 0;
@@ -6,39 +7,46 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #E6E6E6;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #e6e6e6;
   height: 100vh;
   margin: 0;
+}
+
+.gerenciar-page {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-.container {
+.gerenciar-container {
   width: 100%;
   max-width: 600px;
   background-color: #f1f1f1;
   padding: 30px 20px;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
   height: 90vh;
   overflow-y: auto;
 }
 
-h1, h2 {
+.gerenciar-container::-webkit-scrollbar {
+  display: none;
+}
+
+.gerenciar-title {
   color: #1a1919;
+  font-size: 35px;
+  text-align: center;
   margin-bottom: 20px;
 }
 
-h1 {
-  font-size: 35px;
+.gerenciar-content {
+  text-align: center;
 }
 
-.input-area {
+.add-player-form {
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
@@ -47,7 +55,7 @@ h1 {
   gap: 10px;
 }
 
-input[type="text"] {
+.player-input {
   padding: 10px 16px;
   font-size: 16px;
   color: #1a1919;
@@ -59,71 +67,55 @@ input[type="text"] {
   box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
-input[type="text"]:focus {
+.player-input:focus {
   outline: none;
-  border-color: #4CAF50;
+  border-color: #4caf50;
 }
 
-button {
+.add-button {
   padding: 10px 16px;
   font-size: 15px;
   cursor: pointer;
   border: none;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border-radius: 20px;
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.add-button:hover {
   background-color: #45a049;
 }
 
-.buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 10px;
+.section-title {
+  color: #1a1919;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.new-list-btn {
-  background-color: #2e6b03;
-}
-
-.new-list-btn:hover {
-  background-color: #245602;
-}
-
-.save-list-btn {
-  background-color: #3d7303;
-}
-
-.save-list-btn:hover {
-  background-color: #2e5802;
-}
-
-.lista {
+.players-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
   text-align: left;
   max-width: 100%;
-}
-
-.lista-jogadores {
   max-height: 200px;
   overflow-y: auto;
   margin-bottom: 20px;
 }
 
-.lista-confirmados {
+.players-list::-webkit-scrollbar {
+  display: none;
+}
+
+.confirmed-list,
+.removed-list {
   max-height: 150px;
-  overflow-y: auto;
   margin-top: 10px;
 }
 
-.jogador {
+.player-item {
   padding: 10px;
   margin: 5px 0;
   background-color: #f0f0f0;
@@ -134,76 +126,74 @@ button:hover {
   font-size: 18px;
 }
 
-.jogador.presente {
-  background-color: #c8e6c9;
+.removed-player {
+  background-color: #ffcccc;
 }
 
-.jogador span {
+.player-name {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-grow: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 18px;
-}
-
-.jogador:not(.presente) span {
   color: red;
 }
 
-.jogador.presente span {
-  color: green;
+.confirmed-player .player-name {
+  color: white;
 }
 
-.jogador .remove-btn {
-  background: none;
-  border: none;
-  color: red;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.jogador .remove-btn:hover {
-  color: darkred;
-}
-
-.jogador.removido {
-  background-color: #ffcccc;
+.removed-player .player-name {
   color: #ff0000;
-}
-
-.jogador.removido span {
   font-weight: bold;
 }
 
-.jogador.removido .remove-btn {
-  display: none;
-}
-
-.botoes-jogador {
+.player-actions {
   display: flex;
   gap: 8px;
   align-items: center;
 }
 
-.confirmar-btn {
-  background-color: #2196F3;
+.remove-button {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  padding: 4px 10px;
+}
+
+.remove-button:hover {
+  color: darkred;
+}
+
+.confirm-button {
+  background-color: #2196f3;
   border: none;
   color: white;
   font-size: 18px;
   padding: 4px 10px;
   border-radius: 4px;
   cursor: pointer;
+  width: auto;
+  height: auto;
 }
 
-.confirmar-btn:hover {
+.confirm-button:hover {
   background-color: #1976d2;
 }
 
+.confirm-button.confirmed {
+  background-color: #4caf50;
+}
+
 .restaurar-btn {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   border: none;
   color: white;
   font-size: 18px;
@@ -216,13 +206,7 @@ button:hover {
   background-color: #388e3c;
 }
 
-.lista-jogadores::-webkit-scrollbar,
-.lista-confirmados::-webkit-scrollbar,
-.container::-webkit-scrollbar {
-  display: none;
-}
-
-.seletor-uniforme {
+.color-picker-container {
   margin: 20px 0;
   display: flex;
   justify-content: center;
@@ -232,19 +216,75 @@ button:hover {
   color: #333;
 }
 
-.seletor-uniforme input[type="color"] {
+.color-picker {
   width: 30px;
   height: 30px;
   border: none;
   cursor: pointer;
   background: none;
 }
-.seletor-uniforme {
+
+.color-preview {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.button-container {
+  margin-top: 20px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: #1a1919;
+}
+
+.list-button {
+  padding: 10px 16px;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.new-list {
+  background-color: #2e6b03;
+}
+
+.new-list:hover {
+  background-color: #245602;
+}
+
+.validate-list {
+  background-color: #3d7303;
+}
+
+.validate-list:hover {
+  background-color: #2e5802;
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+  .gerenciar-container {
+    padding: 20px 15px;
+  }
+
+  .add-player-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .player-input {
+    width: 100%;
+  }
+
+  .button-container {
+    flex-direction: column;
+  }
+
+  .list-button {
+    width: 100%;
+  }
 }

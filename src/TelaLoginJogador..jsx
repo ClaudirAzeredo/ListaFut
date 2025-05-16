@@ -5,7 +5,7 @@ const Telaloginjogador = () => {
   return (
     <div className="container">
       <div className="logo">
-        <img src="logo.png" alt="Logo PeladeirosFC" />
+        <img src="logobola.png" alt="Logo PeladeirosFC" />
       </div>
       <h1 className="title">
         <span className="green">Peladeiros</span><span className="red">FC</span>

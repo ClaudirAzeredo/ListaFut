@@ -1,86 +1,105 @@
-/* Container principal */
+/* LoginOrganizador.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
 .login-organizador-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-organizador-box {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 15px;
+}
+
+.login-organizador-title {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 25px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.login-organizador-form {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+/* Default input style */
+.form-input {
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  color: #666;
+}
+
+/* Special style for the list name input - FULLY ROUNDED */
+#listName {
+  width: 100%; /* Make it shorter than other inputs */
+  border: none;
+  border-radius: 4px;
+}
+
+.form-input::placeholder {
+  color: #aaa;
+}
+
+.login-organizador-button-container {
+  margin-top: 15px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.login-organizador-button {
+  width: 100%;
+  padding: 12px 0;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+  .login-organizador-box {
+    max-width: 90%;
   }
-  
-  /* Logo */
-  .logo {
-    width: 100px;
-    height: auto;
-    margin-bottom: 20px;
-  }
-  
-  /* Título */
-  .title {
-    font-size: 36px;
-    margin-bottom: 10px;
-  }
-  
-  .title .green {
-    color: #28a745;
-  }
-  
-  .title .red {
-    color: #dc3545;
-  }
-  
-  /* Subtítulo */
-  .subtitle {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #555;
-  }
-  
-  /* Grupo de formulário */
-  .form-group {
-    width: 100%;
-    max-width: 400px;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Rótulos */
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  /* Campos de entrada */
-  .form-group input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  /* Botão */
-  .go-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .go-button:hover {
-    background-color: #788821;
-  }
-  
-  
+}

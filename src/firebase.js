@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase } from "firebase/database"; // ✅ Importa o Realtime Database
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAf15BItzTPNfgQXN1iTy2ymB-e_Jc_Pow",
@@ -17,5 +18,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const database = getDatabase(app); 
+const auth = getAuth(app); 
 
-export { app, analytics, database }; 
+
+export { database, auth }; 
+export { app, analytics }; 

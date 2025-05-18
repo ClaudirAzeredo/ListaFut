@@ -1,0 +1,77 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+.cadastro-organizador-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 20px;
+}
+
+.cadastro-organizador-container h2 {
+  margin-bottom: 25px;
+  color: #777;
+  font-weight: normal;
+  text-align: center;
+}
+
+.cadastro-organizador-container label {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: normal;
+  text-align: left;
+  width: 100%;
+  max-width: 400px;
+}
+
+.cadastro-organizador-container input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.cadastro-organizador-container input::placeholder {
+  color: #aaa;
+}
+
+.cadastro-organizador-container button {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 0;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .cadastro-organizador-container input,
+  .cadastro-organizador-container button,
+  .cadastro-organizador-container label {
+    max-width: 100%;
+  }
+}

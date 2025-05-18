@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { ref, get } from 'firebase/database';
+import { database } from '../firebase';
 import './LoginOrganizador.css';
 
 function LoginOrganizador() {
@@ -7,8 +10,9 @@ function LoginOrganizador() {
   const [listName, setListName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleGoClick = () => {
+  const handleGoClick = async () => {
     if (!listName.trim()) {
       alert('Por favor, digite o nome da lista');
       return;
@@ -27,7 +31,42 @@ function LoginOrganizador() {
       return;
     }
 
-    navigate('/App'); // ou a rota que preferir
+    setLoading(true);
+
+    try {
+      const auth = getAuth();
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Verifica se a lista existe para esse organizador
+      const listasRef = ref(database, 'listas');
+      const listasSnapshot = await get(listasRef);
+      const listasData = listasSnapshot.val() || {};
+
+      let listaEncontrada = null;
+
+      for (const [id, lista] of Object.entries(listasData)) {
+        if (
+          lista.nome.toLowerCase() === listName.trim().toLowerCase() &&
+          lista.organizadorId === user.uid
+        ) {
+          listaEncontrada = { id, ...lista };
+          break;
+        }
+      }
+
+      if (!listaEncontrada) {
+        alert('Lista não encontrada. Verifique o nome ou cadastre uma nova lista.');
+        setLoading(false);
+        return;
+      }
+
+      setLoading(false);
+      navigate(`/gerenciar/${listaEncontrada.id}`);
+    } catch (error) {
+      setLoading(false);
+      alert('Erro no login: ' + error.message);
+    }
   };
 
   return (
@@ -73,9 +112,17 @@ function LoginOrganizador() {
             />
           </div>
 
+          <p>
+            Não tem conta? <Link to="/CadastroOrganizador">Cadastre-se aqui</Link>
+          </p>
+
           <div className="login-organizador-button-container">
-            <button className="login-organizador-button" onClick={handleGoClick}>
-              Go!
+            <button
+              className="login-organizador-button"
+              onClick={handleGoClick}
+              disabled={loading}
+            >
+              {loading ? 'Carregando...' : 'Go!'}
             </button>
           </div>
         </div>

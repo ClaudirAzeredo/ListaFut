@@ -69,7 +69,7 @@
 }
 
 .confirmed-player {
-  background-color: #d4edda;
+  background-color: #045c19;
   border-color: #c3e6cb;
 }
 
@@ -110,4 +110,65 @@
 
 ul li:last-child {
   margin-bottom: 0;
+}
+.color-picker-container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.color-picker {
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+.color-preview {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.list-button {
+  padding: 10px 16px;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+.copy-link-button {
+  background-color: #0984e3; /* azulzinho */
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  margin-left: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.copy-link-button:hover {
+  background-color: #74b9ff; /* azul mais claro no hover */
+}
+
+.copy-link-button:active {
+  background-color: #0652dd; /* azul mais escuro no clique */
 }

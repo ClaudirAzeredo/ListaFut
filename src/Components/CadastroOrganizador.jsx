@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, set, push } from "firebase/database";
 import { database } from '../firebase';
-import './CadastroOrganizador.css';
+import './Style/CadastroOrganizador.css';
 
 function CadastroOrganizador() {
   const navigate = useNavigate();

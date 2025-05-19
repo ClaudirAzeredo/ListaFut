@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Login.css';
+import '../Style/Login.css';
 
 function Login() {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ function Login() {
     if (tipo === 'organizador') {
       navigate('/organizador');
     } else if (tipo === 'jogador') {
-      navigate('/jogador');
+      navigate('/loginJogador');
     }
   };
 

@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { ref, get } from 'firebase/database';
 import { database } from '../firebase';
-import './LoginOrganizador.css';
+import '../Components/Style/LoginOrganizador.css';
 
 function LoginOrganizador() {
   const navigate = useNavigate();
@@ -113,7 +113,7 @@ function LoginOrganizador() {
           </div>
 
           <p>
-            Não tem conta? <Link to="/CadastroOrganizador">Cadastre-se aqui</Link>
+            Não tem conta? <Link to="/cadastroOrganizador">Cadastre-se aqui</Link>
           </p>
 
           <div className="login-organizador-button-container">

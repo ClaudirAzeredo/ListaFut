@@ -1,8 +1,6 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import "./Teladeposicoes.css"
-import campoImg from "./assets/Campo.png"
+import { useState, useEffect } from "react";
+import "../Style/Teladeposicoes.css";
+import campoImg from "../../assets/Campo.png";
 
 // Simple filled T-shirt SVG component that takes a color prop
 const TShirtIcon = ({ color }) => (
@@ -392,7 +390,6 @@ const Teladeposicoes = () => {
   }
 
   return (
-    <div className="posicoes-page">
       <div className="posicoes-container">
         <h1 className="posicoes-title">Escalação da Pelada</h1>
 
@@ -594,7 +591,7 @@ const Teladeposicoes = () => {
           </div>
         )}
       </div>
-    </div>
+    
   )
 }
 
